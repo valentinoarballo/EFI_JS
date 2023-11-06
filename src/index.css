@@ -1,0 +1,24 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.dark-content{
+  background: #474E68;
+  color: white;
+}
+
+.light-content{
+background: #ffffff;
+color: rgb(0, 0, 0);
+}
+
+.main-page{
+  height: 90vh;
+  width: 100%;
+  padding: 40px;
+}
