@@ -24,14 +24,9 @@ export default function Home() {
       <>
         <h1>Página Home</h1>
         <div style={{display:'flex', gap:'30px', flexWrap:'wrap', justifyContent: 'space-evenly'}}>
-          {
-            tasks.map((task, key) => {
-              return (
-                // <TaskCard key={task.id} data={task} />
-                <TaskList key={key} tasks={tasks} />
-              )
-            })
-          }
+
+          <TaskList tasks={tasks} />
+
         </div>
       </>
     </LMain>
