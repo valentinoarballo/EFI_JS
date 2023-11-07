@@ -30,7 +30,6 @@ export default function LMain({ children }) {
                         {children}
                     </Content>
                 </div>
-
             </div>
         </DarkModeProvider>
     )
