@@ -5,9 +5,11 @@ import './App.css'
 function App() {
 
   return (
-    // <LoginProvider>
+    <DarkModeProvider>
       <Lmain />
-    // </LoginProvider>
+    </ DarkModeProvider>
+
+
   )
 }
 
