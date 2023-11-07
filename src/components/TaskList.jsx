@@ -4,29 +4,31 @@ import { RoundaboutLeft } from '@mui/icons-material';
 
 const CardsPerPage = 12;
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, pages, completeParameter  }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const indexOfLastCard = currentPage * CardsPerPage;
-  const indexOfFirstCard = indexOfLastCard - CardsPerPage;
+  const indexOfLastCard = currentPage * pages;
+  const indexOfFirstCard = indexOfLastCard - pages;
   const currentCards = tasks.slice(indexOfFirstCard, indexOfLastCard);
-  console.log(currentCards)
   return (
     <>
-      <section style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
-        {currentCards.map((task, key) => (
-          <TaskCard key={key} data={task} />
-        ))}
-      </section>
-      <section style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
+      
+      <section style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', justifyContent: 'space-evenly', marginTop: '20px'}}>
         <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
           Anterior
         </button>
         <p>
-          page Nº {currentPage} of {Math.ceil(tasks.length / CardsPerPage)}
+          page Nº {currentPage} of {Math.ceil(tasks.length / pages)}
         </p>
         <button onClick={() => setCurrentPage(currentPage + 1)} disabled={indexOfLastCard >= tasks.length}>
           Siguiente
         </button>
+      </section>
+      <section style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
+        {currentCards.map((task, key) => (
+          
+            <TaskCard key={key} data={task} />
+             
+        ))}
       </section>
     </>
   );
