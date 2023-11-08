@@ -5,8 +5,8 @@ import { LoginContext } from "../context/LoginContext"
 
 export default function Login() {
   const fields = [
-    { name: 'Nombre de usuario', failmsg: 'incorrecto', type: 'text', value: 'admin' },
-    { name: 'Contraseña', failmsg: 'incorrecta', type: 'password', value: 'admin' }
+    { name: 'Nombre de usuario', failmsg: 'incorrecto', type: 'text', value: 'admin', },
+    { name: 'Contraseña', failmsg: 'incorrecta', type: 'password', value: 'admin', }
   ]
 
   const [failed, setFailed] = useState({ display: false, field: 'none', failmsg: 'none' })
