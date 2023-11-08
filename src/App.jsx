@@ -8,9 +8,8 @@ import './App.css'
 function App() {
 
   return (
-      <DarkModeProvider>
+      // <DarkModeProvider>
         <LMain />
-      </ DarkModeProvider>
   )
 }
 

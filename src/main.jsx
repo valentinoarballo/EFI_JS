@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
   createBrowserRouter,
-  RouterProvider, 
+  RouterProvider,
 } from "react-router-dom";
 
-import  Home  from './pages/Home.jsx'
-import  Contact  from './pages/Contact.jsx'
+import Home from './pages/Home.jsx'
+import Contact from './pages/Contact.jsx'
 import Protected from './pages/Protected';
 import ListProducts from './pages/ListProducts';
 import Product from './pages/Product';
@@ -17,12 +17,13 @@ import Login from './pages/Login.jsx';
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react'
 import { LoginContextProvider } from './context/LoginContext.jsx';
+import { DarkModeProvider } from './context/DarkModeContext';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home /> ,
+    element: <Home />,
   },
   {
     path: "/contact",
@@ -51,7 +52,10 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <LoginContextProvider>
-    <RouterProvider router={router} />
-  </LoginContextProvider>
+  <DarkModeProvider>
+    <LoginContextProvider>
+      <RouterProvider router={router} />
+    </LoginContextProvider>
+  </ DarkModeProvider>
+
 )

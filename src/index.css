@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
 }
@@ -7,18 +8,26 @@ a {
   text-decoration: none;
 }
 
-.dark-content{
-  background: #474E68;
+.dark-content {
+  background: #9192A2;
   color: white;
 }
 
-.light-content{
-background: #ffffff;
-color: rgb(0, 0, 0);
+.light-content {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
 }
 
-.main-page{
-  height: 90vh;
+.main-page {
+  min-height: 100vh;
   width: 100%;
   padding: 40px;
+}
+
+.cardPersonalizada:hover {
+  transition: 100ms ease-in-out;
+  transform: scale(1.05);
+  box-shadow: 18px 17px 34px -10px rgba(27, 27, 27, 0.75);
+  -webkit-box-shadow: 18px 17px 34px -10px rgba(27, 27, 27, 0.75);
+  -moz-box-shadow: 18px 17px 34px -10px rgba(27, 27, 27, 0.75);
 }
