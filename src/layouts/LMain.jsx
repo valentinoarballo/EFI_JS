@@ -1,9 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Menu from "../components/Menu";
 import Content from "../components/Content";
+import { useNavigate } from "react-router-dom";
 import { DarkModeContext, DarkModeProvider } from '../context/DarkModeContext';
+import { LoginContext } from "../context/LoginContext";
 
 export default function LMain({ children }) {
+
+  const {logged, loginToggle} = useContext(LoginContext)
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    console.log("dfsfsdf")
+    if (!logged)
+      navigate('/login') 
+  },[navigate])
 
     return (
         <DarkModeProvider>
