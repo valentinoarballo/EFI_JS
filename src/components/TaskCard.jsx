@@ -7,7 +7,11 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
+import { DarkModeContext } from '../context/DarkModeContext';
 import IconButton from '@mui/material/IconButton';
+import { lightTheme, darkTheme } from '../themes/theme'
+import { ThemeProvider } from '@mui/material/styles';
+import '../index.css'
 
 const bull = (
   <Box
@@ -34,38 +38,30 @@ function check(completed) {
 }
 export default function TaskCard({ data }) {
   const { title, id, completed, userId } = data
+  const { darkMode, toggleDarkMode } = React.useContext(DarkModeContext);
 
   return (
-    <Card sx={{ width: '300px', marginTop: 2, height: '250px', display: 'flex', flexDirection:'column' }}>
-      <CardContent>
-        
-        <div style={{display:'flex', gap:'15px'}}>
-          <Tooltip title="Open settings">
-            <IconButton sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-            </IconButton>
-          </Tooltip>
-
-          <p>User {userId}</p>
-        
-        </div>
-
-        <Typography variant="h6" component="div">
-          {title}
-        </Typography>
-
-        <Typography variant="body2">
-          {'desc' + id}
-        </Typography>
-
-      </CardContent>
-
-
-      <CardActions style={{ display: 'flex', marginTop: 'auto', marginLeft: 'auto' }}>
-        {check(completed)}
-        <Button size="small">{completed ? 'complete' : 'incomplete'}</Button>
-      </CardActions>
-      
-    </Card>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <Card className={'cardPersonalizada'} sx={{ width: '300px', marginTop: 2, height: '250px', display: 'flex', flexDirection: 'column' }}>
+        <CardContent>
+          <div style={{ display: 'flex', gap: '15px' }}>
+            <Tooltip title="Open settings">
+              <IconButton sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <p>User {userId}</p>
+          </div>
+          <Typography variant="h6" component="div">
+            {title}
+          </Typography>
+          <Typography variant="body2">{`Task id: ${id}`}</Typography>
+        </CardContent>
+        <CardActions style={{ display: 'flex', marginTop: 'auto', marginLeft: 'auto' }}>
+          {check(completed)}
+          <Button size="small">{completed ? 'complete' : 'incomplete'}</Button>
+        </CardActions>
+      </Card>
+    </ThemeProvider>
   );
 }

@@ -4,11 +4,15 @@ import Content from "../components/Content";
 import { useNavigate } from "react-router-dom";
 import { DarkModeContext, DarkModeProvider } from '../context/DarkModeContext';
 import { LoginContext } from "../context/LoginContext";
+// import { DarkModeContext } from '../context/DarkModeContext';
+
 
 export default function LMain({ children }) {
 
   const {logged, loginToggle} = useContext(LoginContext)
   const navigate = useNavigate()
+
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   useEffect(()=>{
     console.log("dfsfsdf")
@@ -17,7 +21,7 @@ export default function LMain({ children }) {
   },[navigate])
 
     return (
-        <DarkModeProvider>
+        <div style={{ background: `${darkMode ? '#9192A2' : ''}` }}>
             <div style={{
                 height: '10vh',
                 width: '100%',
@@ -33,7 +37,6 @@ export default function LMain({ children }) {
 
                 <div style={{
                     display: 'flex',
-                    height: '90vh',
                     width: '100%'
                 }}
                 >
@@ -42,6 +45,6 @@ export default function LMain({ children }) {
                     </Content>
                 </div>
             </div>
-        </DarkModeProvider>
+        </div>
     )
 }

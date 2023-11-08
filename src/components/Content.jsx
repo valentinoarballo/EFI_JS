@@ -1,6 +1,7 @@
 import ResponsiveAppBar from './ResponsiveAppBar'
 import * as React from 'react';
 import { DarkModeContext } from '../context/DarkModeContext';
+import '../index.css'
 
 export default function Content({ children }) {
     const { darkMode, toggleDarkMode } = React.useContext(DarkModeContext);
