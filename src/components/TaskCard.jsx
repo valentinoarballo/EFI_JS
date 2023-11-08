@@ -36,8 +36,9 @@ export default function TaskCard({ data }) {
   const { title, id, completed, userId } = data
 
   return (
-    <Card sx={{ minWidth: 230, maxWidth: 250, marginTop: 2, minHeight: '350', maxHeight: '400' }}>
+    <Card sx={{ width: '300px', marginTop: 2, height: '250px', display: 'flex', flexDirection:'column' }}>
       <CardContent>
+        
         <div style={{display:'flex', gap:'15px'}}>
           <Tooltip title="Open settings">
             <IconButton sx={{ p: 0 }}>
@@ -60,7 +61,7 @@ export default function TaskCard({ data }) {
       </CardContent>
 
 
-      <CardActions style={{ display: 'flex' }}>
+      <CardActions style={{ display: 'flex', marginTop: 'auto', marginLeft: 'auto' }}>
         {check(completed)}
         <Button size="small">{completed ? 'complete' : 'incomplete'}</Button>
       </CardActions>
