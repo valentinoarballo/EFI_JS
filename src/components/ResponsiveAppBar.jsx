@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useContext } from 'react';
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,18 +12,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from "react-router-dom"
-import { WidthFull } from '@mui/icons-material';
+import { Link, useNavigate } from "react-router-dom"
 import Switch from '@mui/material/Switch';
 import { DarkModeContext } from '../context/DarkModeContext';
-import { background } from '@chakra-ui/react';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import ToggleButton from '@mui/material/ToggleButton';
-
-const settings = ['Logout'];
+import { LoginContext } from '../context/LoginContext';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -72,19 +66,26 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-function ResponsiveAppBar({ listMenu }) {
+export default function ResponsiveAppBar({ listMenu }) {
 
   const pages = listMenu
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
-  const { darkMode, toggleDarkMode } = React.useContext(DarkModeContext);
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { logged, loginToggle } = useContext(LoginContext)
 
-  const handleClick = () => {
+  const navigate = useNavigate()
+
+  const handleModeSwitch = () => {
     toggleDarkMode();
   }
 
+  const handleLogout = () => {
+    loginToggle()
+    navigate('/login')
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -100,6 +101,8 @@ function ResponsiveAppBar({ listMenu }) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const settings = [{name: 'Logout', func: handleLogout}]
 
   return (
     <AppBar position="static">
@@ -222,7 +225,7 @@ function ResponsiveAppBar({ listMenu }) {
           {/* Icono fotito de perfil DESKTOP y MOBILE*/}
           <Box sx={{ flkexGrow: 0 }} style={{ display: 'flex', gap: '40  px' }}>
             <FormControlLabel
-              onClick={handleClick}
+              onClick={handleModeSwitch}
               control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
               label=""
             />
@@ -250,9 +253,9 @@ function ResponsiveAppBar({ listMenu }) {
               onClose={handleCloseUserMenu}
             >
 
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {settings.map(({name, func}) => (
+                <MenuItem key={name} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center" onClick={func}>{name}</Typography>
                 </MenuItem>
               ))}
 
@@ -264,4 +267,3 @@ function ResponsiveAppBar({ listMenu }) {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;

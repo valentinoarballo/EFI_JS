@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import TaskCard from './TaskCard';
-import { RoundaboutLeft } from '@mui/icons-material';
-import { DarkModeContext } from '../context/DarkModeContext';
+import { useState, useContext } from 'react';
 import Pagination from '@mui/material/Pagination';
+import TaskCard from './TaskCard';
+import { DarkModeContext } from '../context/DarkModeContext';
 
-function TaskList({ tasks, pages, completeParameter }) {
+export default function TaskList({ tasks, pages, completeParameter }) {
   const [currentPage, setCurrentPage] = useState(1);
   const indexOfLastCard = currentPage * pages;
   const indexOfFirstCard = indexOfLastCard - pages;
   const currentCards = tasks.slice(indexOfFirstCard, indexOfLastCard);
 
   const totalPages = Math.ceil(tasks.length / pages);
-  const { darkMode, toggleDarkMode } = React.useContext(DarkModeContext);
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
@@ -42,5 +41,3 @@ function TaskList({ tasks, pages, completeParameter }) {
     </>
   );
 }
-export default TaskList;
-

@@ -1,15 +1,14 @@
-import ResponsiveAppBar from './ResponsiveAppBar'
-import * as React from 'react';
+import { Children, useContext, cloneElement } from 'react';
 import { DarkModeContext } from '../context/DarkModeContext';
 import '../index.css'
 
 export default function Content({ children }) {
-    const { darkMode, toggleDarkMode } = React.useContext(DarkModeContext);
-    return (
-        <div className={darkMode ? 'dark-content main-page' : 'light-content main-page'}>
-            {React.Children.map(children, (child) =>
-                React.cloneElement(child, { darkMode })
-            )}
-        </div>
-    )
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  return (
+    <div className={darkMode ? 'dark-content main-page' : 'light-content main-page'}>
+      {Children.map(children, (child) =>
+        cloneElement(child, { darkMode })
+      )}
+    </div>
+  )
 }

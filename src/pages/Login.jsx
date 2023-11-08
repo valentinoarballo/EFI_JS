@@ -1,18 +1,15 @@
-import { useState, useEffect, useContext } from "react"
-import LMain from "../layouts/LMain"
+import { useState, useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import ControlledField from "../components/ControlledField"
 import { LoginContext } from "../context/LoginContext"
-import { useNavigate } from "react-router-dom"
 
 export default function Login() {
   const fields = [
     { name: 'Nombre de usuario', failmsg: 'incorrecto', type: 'text', value: 'admin' },
     { name: 'Contraseña', failmsg: 'incorrecta', type: 'password', value: 'admin' }
   ]
-  // pasar como prop
 
-  const [failed, setFailed] = useState({display: false, field: 'none', failmsg: 'none'})
-  const [test, setTest] = useState(false)
+  const [failed, setFailed] = useState({ display: false, field: 'none', failmsg: 'none' })
   const { logged, loginToggle } = useContext(LoginContext)
   const navigate = useNavigate()
 
@@ -21,7 +18,7 @@ export default function Login() {
     var count = fields.length
     for (var i = 0; i < count; i++) {
       if (event.target[i].value != fields[i].value) {
-        return setFailed({display: true, field: fields[i].name, failmsg: fields[i].failmsg})
+        return setFailed({ display: true, field: fields[i].name, failmsg: fields[i].failmsg })
       }
     }
     loginToggle()
@@ -29,7 +26,7 @@ export default function Login() {
   }
 
   return (
-      <section>
+    <>
       <p style={{
         display: failed.display ? '' : 'none'
       }}>{failed.field} {failed.failmsg}</p>
@@ -39,7 +36,7 @@ export default function Login() {
         ))}
         <button type='submit'>Entrar</button>
       </form>
-      </section>
+    </>
   )
 
 }
