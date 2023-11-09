@@ -12,8 +12,8 @@ export default function Menu() {
       path: '/contact'
     },
     {
-      name: 'Product',
-      path: '/products'
+      name: 'Users',
+      path: '/users'
     },
   ]
   return (
