@@ -1,6 +1,7 @@
 import { Box, Button, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useNavigate } from "react-router-dom"
+import "./Error404.css"
 
 export default function Error() {
     const navigate = useNavigate()
@@ -25,10 +26,10 @@ export default function Error() {
                         <Typography variant="h1">
                             404
                         </Typography>
-                        <Typography variant="h6" style={{marginTop:'10px'}}>
+                        <Typography variant="h6" className='notFoundMessage'>
                             Estas buscando una paguina que no existe
                         </Typography>
-                        <Button style={{marginTop:'10px'}} variant="contained" onClick={handleClick}>
+                        <Button className='notFoundReturnButton' variant="contained" onClick={handleClick}>
                             Volver a Home
                         </Button>
                     </Grid>

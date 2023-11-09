@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TextField } from "@mui/material";
 import PropTypes from 'prop-types';
+import "../index.css"
 
 export default function ControlledField({ name, type }) {
   const [value, valueChanged] = useState('');
@@ -11,7 +12,7 @@ export default function ControlledField({ name, type }) {
 
   return (
     <TextField
-      style={{ margin: 8 }}
+      className="controlledField"
       type={type}
       label={name}
       name={name}

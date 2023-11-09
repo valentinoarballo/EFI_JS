@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme, darkTheme } from '../../themes/theme'
 import { DarkModeContext } from '../../context/DarkModeContext';
-
+import "./Home.css"
 
 export default function Home() {
   const { darkMode } = useContext(DarkModeContext);
@@ -37,8 +37,8 @@ export default function Home() {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <LMain>
 
-        <div style={{ display: 'flex', alignContent: 'center', gap: '20px', justifyContent: 'right' }}>
-          <FormControl style={{ minWidth: '200px' }} fullWidth>
+        <div className="homeMain">
+          <FormControl className="homePageFilter" fullWidth>
             <InputLabel id="demo-simple-select-label">Pages</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -53,7 +53,7 @@ export default function Home() {
             </Select>
           </FormControl>
 
-          <FormControl style={{ minWidth: '200px' }} fullWidth>
+          <FormControl className="homePageFilter" fullWidth>
             <InputLabel id="demo-simple-select-label">Filter by</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -69,7 +69,7 @@ export default function Home() {
           </FormControl>
 
         </div>
-        <div style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'space-evenly', minHeight: '40rem' }}>
+        <div className="homeTaskContainer">
 
           <TaskContainer tasks={tasks} pages={pages} completeParameter={completeParameter} />
 
