@@ -9,7 +9,7 @@ a {
 }
 
 .dark-content {
-  background: #9192A2;
+  background: #191919;
   color: white;
 }
 
@@ -25,6 +25,14 @@ a {
 }
 
 .cardPersonalizada:hover {
+  transition: 100ms ease-in-out;
+  transform: scale(1.05);
+  box-shadow: 18px 19px 39px 2px rgba(0, 0, 0, 0.50);
+  -webkit-box-shadow: 18px 19px 39px 2px rgba(0, 0, 0, 0.50);
+  -moz-box-shadow: 18px 19px 39px 2px rgba(0, 0, 0, 0.50);
+}
+
+.cardPersonalizadalight:hover {
   transition: 100ms ease-in-out;
   transform: scale(1.05);
   box-shadow: 18px 17px 34px -10px rgba(27, 27, 27, 0.75);

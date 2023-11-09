@@ -14,9 +14,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Switch from '@mui/material/Switch';
+import FlutterDashIcon from '@mui/icons-material/FlutterDash';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { DarkModeContext } from '../context/DarkModeContext';
 import { LoginContext } from '../context/LoginContext';
+
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -104,12 +106,13 @@ export default function ResponsiveAppBar({ listMenu }) {
   const settings = [{ name: 'Logout', func: handleLogout }]
 
   return (
-    <AppBar position="static">
+    <AppBar style={{ background: `${darkMode ? '#1f1f1f' : ''}` }} position="static">
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
 
           {/* Icono bichito DESKTOP */}
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          <FlutterDashIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          
 
           {/* Agrega un logo en DESKTOP con una tipografia especifica (se le puede poner un href) */}
           <Typography
@@ -126,7 +129,7 @@ export default function ResponsiveAppBar({ listMenu }) {
               textDecoration: 'none',
             }}
           >
-            TASK MANAGER
+            TUX MANAGER
           </Typography>
 
 
@@ -200,7 +203,7 @@ export default function ResponsiveAppBar({ listMenu }) {
               textDecoration: 'none',
             }}
           >
-            TASK MANAGER
+            TUX MANAGER
           </Typography>
 
 

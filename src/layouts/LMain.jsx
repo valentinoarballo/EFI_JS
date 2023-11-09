@@ -19,7 +19,7 @@ export default function LMain({ children }) {
   }, [navigate])
 
   return (
-    <div style={{ background: `${darkMode ? '#9192A2' : ''}` }}>
+    <div style={{ background: `${darkMode ? 'black' : ''}` }}>
       <div style={{
         height: '10vh',
         width: '100%',
