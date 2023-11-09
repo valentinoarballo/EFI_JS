@@ -228,7 +228,7 @@ export default function ResponsiveAppBar({ listMenu }) {
           <Box sx={{ flkexGrow: 0 }} style={{ display: 'flex', gap: '40  px' }}>
             <FormControlLabel
               onClick={handleModeSwitch}
-              control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+              control={<MaterialUISwitch sx={{ m: 1 }} checked={darkMode} />}
               label=""
             />
 
