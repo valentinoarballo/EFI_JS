@@ -3,6 +3,7 @@ import Pagination from '@mui/material/Pagination';
 import TaskCard from './TaskCard';
 import { DarkModeContext } from '../context/DarkModeContext';
 import PropTypes from 'prop-types';
+import '../index.css'
 
 
 export default function TaskList({ tasks, pages, completeParameter }) {
@@ -20,13 +21,13 @@ export default function TaskList({ tasks, pages, completeParameter }) {
 
   return (
     <>
-      <section style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
+      <section className='taskListBodySection'>
         {currentCards.map((task, key) => (
           <TaskCard key={key} data={task} />
         ))}
       </section>
 
-      <section style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', justifyContent: 'space-evenly', marginTop: '20px' }}>
+      <section className='taskListPagination'>
         <Pagination
           count={totalPages}  // Número total de páginas
           page={currentPage}  // Página actual

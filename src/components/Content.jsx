@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 export default function Content({ children }) {
   const { darkMode } = useContext(DarkModeContext);
   return (
-    <div className={darkMode ? 'dark-content main-page' : 'light-content main-page'}>
+    <div className={darkMode ? 'darkContent mainPage' : 'lightContent mainPage'}>
       {Children.map(children, (child) =>
         cloneElement(child)
       )}

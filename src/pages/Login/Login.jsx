@@ -1,8 +1,9 @@
 import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
+import { Container, Box, Avatar, Button, Alert} from "@mui/material"
 import ControlledField from "../../components/ControlledField"
 import { LoginContext } from "../../context/LoginContext"
-import { Container, Box, Avatar, Button, Alert} from "@mui/material"
+import "./Login.css"
 
 export default function Login() {
   const fields = [
@@ -40,13 +41,7 @@ export default function Login() {
       id='container' 
       component="main" 
       maxWidth="xs" 
-      style={{
-        marginTop: '10%',
-        overflow:'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
+      className="loginContainer"
       >
       <Box sx={{
         display: 'flex',
@@ -61,11 +56,7 @@ export default function Login() {
 
         <form 
           onSubmit={handleSubmit}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',    
-          }}
+          className="loginForm"
         >
           {fields.map((field, index) => (
             <ControlledField key={index} name={field.name} type={field.type} />

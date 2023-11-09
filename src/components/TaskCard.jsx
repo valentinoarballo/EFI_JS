@@ -37,7 +37,7 @@ export default function TaskCard({ data }) {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Card className={'cardPersonalizada'} sx={{ width: '300px', marginTop: 2, height: '250px', display: 'flex', flexDirection: 'column' }}>
         <CardContent>
-          <div style={{ display: 'flex', gap: '15px' }}>
+          <div className='taskCardContent'>
             <Tooltip title="Open settings">
               <IconButton sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -50,7 +50,7 @@ export default function TaskCard({ data }) {
           </Typography>
           <Typography variant="body2">{`Task id: ${id}`}</Typography>
         </CardContent>
-        <CardActions style={{ display: 'flex', marginTop: 'auto', marginLeft: 'auto' }}>
+        <CardActions className='taskCardActions'>
           {check(completed)}
           <Button size="small">{completed ? 'complete' : 'incomplete'}</Button>
         </CardActions>

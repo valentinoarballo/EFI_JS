@@ -1,7 +1,7 @@
 .notFoundMessage {
-    margin-top: 10px;
+    margin-top: 10px !important;
 }
 
 .notFoundReturnButton {
-    margin-top: 10px;
+    margin-top: 10px !important;
 }

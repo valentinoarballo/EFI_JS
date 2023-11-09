@@ -110,7 +110,7 @@ export default function ResponsiveAppBar({ listMenu }) {
   const settings = [{ name: 'Logout', func: handleLogout }]
 
   return (
-    <AppBar style={{ background: `${darkMode ? '#1f1f1f' : ''}` }} position="static">
+    <AppBar className={`${darkMode ? 'darkModeBackground' : ''}`} position="static">
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
 

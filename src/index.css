@@ -1,3 +1,7 @@
+:root{
+  --darkBackgroundColor: #1f1f1f;
+}
+
 body,
 html {
   margin: 0;
@@ -9,20 +13,24 @@ a {
   color: white;
 }
 
-.dark-content {
+.darkContent {
   background: #191919;
   color: white;
 }
 
-.light-content {
+.lightContent {
   background: #ffffff;
   color: rgb(0, 0, 0);
 }
 
-.main-page {
+.mainPage {
   min-height: 100vh;
   width: 100%;
   padding: 40px;
+}
+
+.darkModeBackground {
+  background: var(--darkBackgroundColor) !important;
 }
 
 .cardPersonalizada:hover {
@@ -42,25 +50,19 @@ a {
 }
 
 .controlledField {
-  margin: 8;
+  margin: 8px !important;
 }
-
-/* ControlledField.jsx -> TextField */
 
 .taskCardContent {
-  display: flex;
-  gap: 15px;
+  display: flex !important;
+  gap: 15px !important;
 }
-
-/* TaskCard.jsx -> CardContent-> div */
 
 .taskCardActions {
-  display: flex;
-  margin-top: auto;
-  margin-left: auto;
+  display: flex !important;
+  margin-top: auto !important;
+  margin-left: auto !important;
 }
-
-/* TaskCard.jsx -> CardActions */
 
 .taskListBodySection {
   display: flex;
@@ -69,8 +71,6 @@ a {
   justify-content: space-evenly;
 }
 
-/* TaskList.jsx -> section (currentCards.map) */
-
 .taskListPagination {
   display: flex;
   gap: 40px;
@@ -78,6 +78,3 @@ a {
   justify-content: space-evenly;
   margin-top: 20px;
 }
-
-/* TaskList.jsx -> section (Pagination) */
-
