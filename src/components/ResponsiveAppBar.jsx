@@ -18,6 +18,9 @@ import FlutterDashIcon from '@mui/icons-material/FlutterDash';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { DarkModeContext } from '../context/DarkModeContext';
 import { LoginContext } from '../context/LoginContext';
+import { lightTheme, darkTheme } from '../themes/theme'
+import { ThemeProvider } from '@mui/material/styles';
+
 import '../index.css'
 import PropTypes from 'prop-types';
 
@@ -77,7 +80,7 @@ export default function ResponsiveAppBar({ listMenu }) {
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  
+
   // eslint-disable-next-line no-unused-vars
   const { logged, loginToggle } = useContext(LoginContext)
 
@@ -110,166 +113,161 @@ export default function ResponsiveAppBar({ listMenu }) {
   const settings = [{ name: 'Logout', func: handleLogout }]
 
   return (
-    <AppBar className={`${darkMode ? 'darkModeBackground' : ''}`} position="static">
-      <Container maxWidth="xxl">
-        <Toolbar disableGutters>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <AppBar position="static">
+        <Container maxWidth="xxl">
+          <Toolbar disableGutters>
 
-          {/* Icono bichito DESKTOP */}
-          <FlutterDashIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+            {/* Icono bichito DESKTOP */}
+            <FlutterDashIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
 
-
-          {/* Agrega un logo en DESKTOP con una tipografia especifica (se le puede poner un href) */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            TUX MANAGER
-          </Typography>
-
-
-          {/* Dropdown MOBILE */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-
-            {/*Icono hamburguesa*/}
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-
-            {/* El dropdown MOBILE */}
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+            {/* Agrega un logo en DESKTOP con una tipografia especifica (se le puede poner un href) */}
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
               sx={{
-                display: { xs: 'block', md: 'none' }
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
               }}
             >
+              TUX MANAGER
+            </Typography>
 
-              {pages.map(({ name, path }, key) => { // Desktop
+
+            {/* Dropdown MOBILE */}
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+
+              {/*Icono hamburguesa*/}
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+
+              {/* El dropdown MOBILE */}
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', md: 'none' }
+                }}
+              >
+
+                {pages.map(({ name, path }, key) => { // Desktop
+                  return (
+                    <Link to={path} key={key}>
+                      <MenuItem onClick={handleCloseNavMenu}>
+                        <Typography
+                          textAlign="center"
+                          style={{ color: `${darkMode ? 'white' : 'black'}` }}
+                        >{name}
+                        </Typography>
+                      </MenuItem>
+                    </Link>
+                  )
+                })}
+              </Menu>
+
+            </Box>
+            {/* Agrega un logo en MOBILE con una tipografia especifica (se le puede poner un href) */}
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              TUX MANAGER
+            </Typography>
+
+            {/* Botones navbar DESKTOP */}
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              {pages.map(({ name, path }, key) => {
                 return (
                   <Link to={path} key={key}>
-                    <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography
-                        textAlign="center"
-                        style={{color: `${darkMode ? 'white':'black'}`}}
-                      >{name}
-                      </Typography>
-                    </MenuItem>
+                    <Button
+                      onClick={handleCloseNavMenu}
+                      sx={{ my: 2, color: 'white', display: 'block' }}
+                    >
+                      {name}
+                    </Button>
                   </Link>
                 )
               })}
+            </Box>
 
-            </Menu>
+            {/* Icono fotito de perfil DESKTOP y MOBILE*/}
+            <Box sx={{ flkexGrow: 0 }} style={{ display: 'flex', gap: '40  px' }}>
+              <FormControlLabel
+                onClick={handleModeSwitch}
+                control={<MaterialUISwitch sx={{ m: 1 }} checked={darkMode} />}
+                label=""
+              />
 
-          </Box>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
 
-          {/* Agrega un logo en MOBILE con una tipografia especifica (se le puede poner un href) */}
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            TUX MANAGER
-          </Typography>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
 
-
-          {/* Botones navbar DESKTOP */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map(({ name, path }, key) => {
-              return (
-                <Link to={path} key={key}>
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
-                  >
-                    {name}
-                  </Button>
-                </Link>
-              )
-            })}
-          </Box>
-
-
-          {/* Icono fotito de perfil DESKTOP y MOBILE*/}
-          <Box sx={{ flkexGrow: 0 }} style={{ display: 'flex', gap: '40  px' }}>
-            <FormControlLabel
-              onClick={handleModeSwitch}
-              control={<MaterialUISwitch sx={{ m: 1 }} checked={darkMode} />}
-              label=""
-            />
-
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-
-              {settings.map(({ name, func }) => (
-                <MenuItem key={name} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" onClick={func}>{name}</Typography>
-                </MenuItem>
-              ))}
-
-            </Menu>
-          </Box>
-
-        </Toolbar>
-      </Container>
-    </AppBar>
+                {settings.map(({ name, func }) => (
+                  <MenuItem key={name} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center" onClick={func}>{name}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </ThemeProvider>
   );
 }
 
