@@ -15,18 +15,16 @@ export default function Home() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   const [pages, setPages] = useState('12');
-
-  const handlePageChange = (event) => {
-    setPages(event.target.value);
-  };
-
   const [completeParameter, setCompleteParameter] = useState(null);
+  const [tasks, setTasks] = useState([])
 
   const handleCompleteParameterChange = (event) => {
     setCompleteParameter(event.target.value);
   };
 
-  const [tasks, setTasks] = useState([])
+  const handlePageChange = (event) => {
+    setPages(event.target.value);
+  };
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/todos')
