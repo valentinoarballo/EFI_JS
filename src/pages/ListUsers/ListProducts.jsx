@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import LMain from "../layouts/LMain"
+import LMain from "../../layouts/LMain"
 
 export default function ListProducts(props) {
   const list = [{

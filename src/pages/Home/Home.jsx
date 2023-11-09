@@ -1,21 +1,21 @@
 import { useContext, useEffect, useState } from "react"
-import LMain from "../layouts/LMain"
-import TaskContainer from "../components/TaskContainer"
-import '../index.css'
+import LMain from "../../layouts/LMain"
+import TaskContainer from "../../components/TaskContainer"
+import '../../index.css'
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { ThemeProvider } from '@mui/material/styles';
-import { lightTheme, darkTheme } from '../themes/theme'
-import { DarkModeContext } from '../context/DarkModeContext';
+import { lightTheme, darkTheme } from '../../themes/theme'
+import { DarkModeContext } from '../../context/DarkModeContext';
 
 
 export default function Home() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   const [pages, setPages] = useState('12');
-  const [completeParameter, setCompleteParameter] = useState(null);
+  const [completeParameter, setCompleteParameter] = useState(2);
   const [tasks, setTasks] = useState([])
 
   const handleCompleteParameterChange = (event) => {
@@ -62,9 +62,9 @@ export default function Home() {
               label="Filter by"
               onChange={handleCompleteParameterChange}
             >
-              <MenuItem value={null}>sin filtro</MenuItem>
-              <MenuItem value={true}>complete</MenuItem>
-              <MenuItem value={false}>incomplete</MenuItem>
+              <MenuItem value={2}>sin filtro</MenuItem>
+              <MenuItem value={1}>complete</MenuItem>
+              <MenuItem value={0}>incomplete</MenuItem>
             </Select>
           </FormControl>
 

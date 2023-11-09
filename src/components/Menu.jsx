@@ -15,15 +15,6 @@ export default function Menu() {
       name: 'Product',
       path: '/products'
     },
-    {
-      name: 'Protected',
-      path: '/protected'
-    },
-    {
-      name: 'Not Found',
-      path: '/ia'
-    },
-
   ]
   return (
     <div>

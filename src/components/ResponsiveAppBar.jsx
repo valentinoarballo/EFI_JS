@@ -18,6 +18,8 @@ import FlutterDashIcon from '@mui/icons-material/FlutterDash';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { DarkModeContext } from '../context/DarkModeContext';
 import { LoginContext } from '../context/LoginContext';
+import '../index.css'
+import PropTypes from 'prop-types';
 
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -75,6 +77,8 @@ export default function ResponsiveAppBar({ listMenu }) {
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  
+  // eslint-disable-next-line no-unused-vars
   const { logged, loginToggle } = useContext(LoginContext)
 
   const navigate = useNavigate()
@@ -268,3 +272,9 @@ export default function ResponsiveAppBar({ listMenu }) {
     </AppBar>
   );
 }
+
+ResponsiveAppBar.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  listMenu: PropTypes.array.isRequired,
+};

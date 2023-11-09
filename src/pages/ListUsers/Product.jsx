@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import LMain from "../layouts/LMain"
+import LMain from "../../layouts/LMain"
 
 
 export default function Product(props) {

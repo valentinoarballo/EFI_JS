@@ -18,13 +18,9 @@ export default function TaskList({ tasks, pages, completeParameter }) {
 
   return (
     <>
-    
-
       <section style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
         {currentCards.map((task, key) => (
-
           <TaskCard key={key} data={task} />
-
         ))}
       </section>
 
@@ -36,10 +32,11 @@ export default function TaskList({ tasks, pages, completeParameter }) {
           color='primary'
           sx={{ // Clases de estilo condicionales
             '& .MuiPaginationItem-root': {
-              color: darkMode ? '#fff' : 'rgba(0, 0, 0, 0.87)'},}}
+              color: darkMode ? '#fff' : 'rgba(0, 0, 0, 0.87)'
+            },
+          }}
         />
       </section>
-
     </>
   );
 }

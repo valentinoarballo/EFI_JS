@@ -1,7 +1,7 @@
 import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import ControlledField from "../components/ControlledField"
-import { LoginContext } from "../context/LoginContext"
+import ControlledField from "../../components/ControlledField"
+import { LoginContext } from "../../context/LoginContext"
 import { Container, Box, Avatar, Button, TextField, Alert, inputLabelClasses } from "@mui/material"
 
 export default function Login() {
@@ -25,10 +25,10 @@ export default function Login() {
     }
 
     count = fields.length
-    for (var i = 0; i < count; i++) {
+    for (var x = 0; x < count; x++) {
       console.log(inputs)
-      if (inputs[i].value != fields[i].value) {
-        return setFailed({ display: true, field: fields[i].name, failmsg: fields[i].failmsg })
+      if (inputs[x].value != fields[x].value) {
+        return setFailed({ display: true, field: fields[x].name, failmsg: fields[x].failmsg })
       }
     }
     loginToggle()
