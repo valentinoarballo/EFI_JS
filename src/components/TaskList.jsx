@@ -18,17 +18,7 @@ export default function TaskList({ tasks, pages, completeParameter }) {
 
   return (
     <>
-      <section style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', justifyContent: 'space-evenly', marginTop: '20px' }}>
-        <Pagination
-          count={totalPages}  // Número total de páginas
-          page={currentPage}  // Página actual
-          onChange={handleChange}  // Función que se llama cuando el usuario cambia de página
-          color={darkMode ? 'secondary' : 'primary'}
-          sx={{ // Clases de estilo condicionales
-            '& .MuiPaginationItem-root': {
-              color: darkMode ? '#fff' : 'rgba(0, 0, 0, 0.87)'},}}
-        />
-      </section>
+    
 
       <section style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
         {currentCards.map((task, key) => (
@@ -36,6 +26,18 @@ export default function TaskList({ tasks, pages, completeParameter }) {
           <TaskCard key={key} data={task} />
 
         ))}
+      </section>
+
+      <section style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', justifyContent: 'space-evenly', marginTop: '20px' }}>
+        <Pagination
+          count={totalPages}  // Número total de páginas
+          page={currentPage}  // Página actual
+          onChange={handleChange}  // Función que se llama cuando el usuario cambia de página
+          color='primary'
+          sx={{ // Clases de estilo condicionales
+            '& .MuiPaginationItem-root': {
+              color: darkMode ? '#fff' : 'rgba(0, 0, 0, 0.87)'},}}
+        />
       </section>
 
     </>
