@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import ControlledField from "../../components/ControlledField"
 import { LoginContext } from "../../context/LoginContext"
-import { Container, Box, Avatar, Button, TextField, Alert, inputLabelClasses } from "@mui/material"
+import { Container, Box, Avatar, Button, Alert} from "@mui/material"
 
 export default function Login() {
   const fields = [
@@ -11,7 +11,7 @@ export default function Login() {
   ]
 
   const [failed, setFailed] = useState({ display: false, field: 'none', failmsg: 'none' })
-  const { logged, loginToggle } = useContext(LoginContext)
+  const { loginToggle } = useContext(LoginContext)
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {

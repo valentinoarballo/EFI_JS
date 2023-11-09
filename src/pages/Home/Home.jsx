@@ -12,7 +12,7 @@ import { DarkModeContext } from '../../context/DarkModeContext';
 
 
 export default function Home() {
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
 
   const [pages, setPages] = useState('12');
   const [completeParameter, setCompleteParameter] = useState(2);

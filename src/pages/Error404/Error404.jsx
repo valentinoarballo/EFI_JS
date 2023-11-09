@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function Error() {
     const navigate = useNavigate()

@@ -2,6 +2,8 @@ import { useState, useContext } from 'react';
 import Pagination from '@mui/material/Pagination';
 import TaskCard from './TaskCard';
 import { DarkModeContext } from '../context/DarkModeContext';
+import PropTypes from 'prop-types';
+
 
 export default function TaskList({ tasks, pages, completeParameter }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -10,7 +12,7 @@ export default function TaskList({ tasks, pages, completeParameter }) {
   const currentCards = tasks.slice(indexOfFirstCard, indexOfLastCard);
 
   const totalPages = Math.ceil(tasks.length / pages);
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
@@ -40,3 +42,9 @@ export default function TaskList({ tasks, pages, completeParameter }) {
     </>
   );
 }
+
+TaskList.propTypes = {
+  tasks: PropTypes.array.isRequired,
+  pages: PropTypes.number.isRequired,
+  completeParameter: PropTypes.number.isRequired,
+};
