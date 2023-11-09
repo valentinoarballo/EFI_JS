@@ -1,0 +1,25 @@
+.homeMain {
+    display: flex;
+    align-content: center;
+    gap: 20px;
+    justify-content: right;
+}
+
+/* LMain -> div */
+
+
+.homePageFilter {
+    min-width: 200px;
+}
+
+/* LMain -> FormControl (ambos) */
+
+.homeTaskContainer {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    min-height: 40rem;
+}
+
+/* div <- TaskContainer */
