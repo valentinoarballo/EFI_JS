@@ -7,7 +7,7 @@ export default function Content({ children }) {
   return (
     <div className={darkMode ? 'dark-content main-page' : 'light-content main-page'}>
       {Children.map(children, (child) =>
-        cloneElement(child, { darkMode })
+        cloneElement(child)
       )}
     </div>
   )
