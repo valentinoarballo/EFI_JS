@@ -3,8 +3,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Home from './pages/Home/Home.jsx'
 import Contact from './pages/Contact/Contact.jsx'
-import ListProducts from './pages/ListUsers/ListProducts.jsx';
-import Product from './pages/ListUsers/Product.jsx';
+import ListUsers from './pages/ListUsers/ListUsers.jsx';
 import Error404 from './pages/Error404/Error404.jsx';
 import Login from './pages/Login/Login.jsx';
 import { LoginContextProvider } from './context/LoginContext.jsx';
@@ -20,16 +19,12 @@ const router = createBrowserRouter([
     element: <Contact />,
   },
   {
-    path: "/products",
-    element: <ListProducts />,
+    path: "/users",
+    element: <ListUsers />,
   },
   {
     path: "/login",
     element: <Login />
-  },
-  {
-    path: "/products/:productId",
-    element: <Product />,
   },
   {
     path: "*",
