@@ -7,8 +7,10 @@ Este trabajo práctico consiste en la implementación de una aplicación "to-do"
 
 Requiere vite v. 4.5.0
 
-`npm i`
-`npm run dev`
+~~~
+npm i
+npm run dev
+~~~
 
 ## Login
 
@@ -16,11 +18,11 @@ Para utilizar esta aplicación, requerirá iniciar sesión. Por defecto, aceptar
 
 Esta sección es un form con dos campos controlados. Al hacer clic o enter, la aplicación retirará los valores de los campos y los comparará con aquellos registrados. Esta función es fácilmente extensible; el formulario es generado a base de una lista de diccionarios con los mismos campos, y de añadirse, por ejemplo, un campo de email, continuarará funcionando igual. 
 
-[imagen login]
+![login](./src/assets/login.png)
 
 ## Funcionalidades
 
-[imagen portada]
+![portada](./src/assets/portada.png)
 
 ### NavBar
 
@@ -32,16 +34,16 @@ El botón de cambio de tema funciona al clickearlo y guarda las preferencias en 
 
 El botón de logout, accessible mediante el "perfil" a la derecha extrema, cerrará la sesión y navegará automáticamente al login. Este también está generado con una función map, aunque solo implementa una función, para ser fácilmente extensible.
 
-[imagen navbar]
+![login](./src/assets/nav.png)
 
 ### Filtros
 
 Las cartas to-do pueden filtrarse de dos maneras; por cantidad, y por tipo. El filtro de páginas organiza las cartas en páginas de 12, 10 y 8, navegables al fondo de la aplicación (véase "Paginación"). El filtro de tipo permite seleccionar si desea ver los to-dos completos, incompletos, o ambos.
 
-[imagen filtros]
+![login](./src/assets/filtros.png)
 
 ### Paginación
 
 La sección de paginación permite navegar todas las páginas de cartas.
 
-[imagen páginas]
+![login](./src/assets/pag.png)
