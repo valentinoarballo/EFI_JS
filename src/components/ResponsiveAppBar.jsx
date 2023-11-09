@@ -112,7 +112,7 @@ export default function ResponsiveAppBar({ listMenu }) {
 
           {/* Icono bichito DESKTOP */}
           <FlutterDashIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          
+
 
           {/* Agrega un logo en DESKTOP con una tipografia especifica (se le puede poner un href) */}
           <Typography
@@ -164,7 +164,7 @@ export default function ResponsiveAppBar({ listMenu }) {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none' }
               }}
             >
 
@@ -172,7 +172,11 @@ export default function ResponsiveAppBar({ listMenu }) {
                 return (
                   <Link to={path} key={key}>
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{name}</Typography>
+                      <Typography
+                        textAlign="center"
+                        style={{color: `${darkMode ? 'white':'black'}`}}
+                      >{name}
+                      </Typography>
                     </MenuItem>
                   </Link>
                 )
@@ -181,11 +185,6 @@ export default function ResponsiveAppBar({ listMenu }) {
             </Menu>
 
           </Box>
-
-
-          {/* Icono bichito MOBILE */}
-          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
-
 
           {/* Agrega un logo en MOBILE con una tipografia especifica (se le puede poner un href) */}
           <Typography
