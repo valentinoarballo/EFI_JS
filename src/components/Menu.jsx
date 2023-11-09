@@ -8,8 +8,8 @@ export default function Menu() {
       path: '/'
     },
     {
-      name: 'Contacto',
-      path: '/contact'
+      name: 'Manual',
+      path: '/manual'
     },
     {
       name: 'Users',

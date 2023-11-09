@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Home from './pages/Home/Home.jsx'
-import Contact from './pages/Contact/Contact.jsx'
+import Manual from './pages/Contact/Manual.jsx'
 import ListUsers from './pages/ListUsers/ListUsers.jsx';
 import Error404 from './pages/Error404/Error404.jsx';
 import Login from './pages/Login/Login.jsx';
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/contact",
-    element: <Contact />,
+    path: "/manual",
+    element: <Manual />,
   },
   {
     path: "/users",

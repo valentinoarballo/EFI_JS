@@ -5,15 +5,15 @@ import login from '../../assets/login.png'
 import nav from '../../assets/nav.png'
 import pag from '../../assets/pag.png'
 import portada from '../../assets/portada.png'
-import './Contact.css'
+import './Manual.css'
 import "../../index.css"
 
 
-export default function Contact() {
+export default function Manual() {
   return (
     <LMain>
-      <h1>Integrador ReactJS Parte 2</h1>
-
+      <h1>Manual de documentación</h1>
+      <hr />
       <Paper elevation={3} className='contactCard'>
         <h2 className='contactHeader'>Router Dom + MaterialUI</h2>
 
