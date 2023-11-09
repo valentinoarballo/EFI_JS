@@ -2,6 +2,7 @@ import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import ControlledField from "../components/ControlledField"
 import { LoginContext } from "../context/LoginContext"
+import { Container, Box, Avatar, Button, TextField, Alert, inputLabelClasses } from "@mui/material"
 
 export default function Login() {
   const fields = [
@@ -15,9 +16,18 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    var count = fields.length
+    var count = event.target.length
+    var inputs = []
     for (var i = 0; i < count; i++) {
-      if (event.target[i].value != fields[i].value) {
+      if (event.target[i].nodeName == 'INPUT') {
+        inputs.push(event.target[i])
+      }
+    }
+
+    count = fields.length
+    for (var i = 0; i < count; i++) {
+      console.log(inputs)
+      if (inputs[i].value != fields[i].value) {
         return setFailed({ display: true, field: fields[i].name, failmsg: fields[i].failmsg })
       }
     }
@@ -26,17 +36,54 @@ export default function Login() {
   }
 
   return (
-    <>
-      <p style={{
-        display: failed.display ? '' : 'none'
-      }}>{failed.field} {failed.failmsg}</p>
-      <form onSubmit={handleSubmit}>
-        {fields.map((field, index) => (
-          <ControlledField key={index} name={field.name} type={field.type} />
-        ))}
-        <button type='submit'>Entrar</button>
-      </form>
-    </>
+    <Container 
+      id='container' 
+      component="main" 
+      maxWidth="xs" 
+      style={{
+        marginTop: '10%',
+        overflow:'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+      >
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        }}
+      >
+
+        <Avatar sx={{m:1}} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
+        <h3>Iniciar Sesión</h3>
+
+        <form 
+          onSubmit={handleSubmit}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',    
+          }}
+        >
+          {fields.map((field, index) => (
+            <ControlledField key={index} name={field.name} type={field.type} />
+          ))}
+          <Button sx={{m:5, width: '80%'}} type='submit' variant='contained'>Entrar</Button>
+        </form>
+
+        <Alert sx={{
+          display: failed.display ? '' : 'none',
+          borderRadius: '10px',
+        }}
+        color="error"
+        icon={false}
+        >{failed.field} {failed.failmsg}</Alert>
+
+
+      </Box>
+    </Container>
   )
 
 }

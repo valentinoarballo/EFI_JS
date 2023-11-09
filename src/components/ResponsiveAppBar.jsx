@@ -112,7 +112,7 @@ export default function ResponsiveAppBar({ listMenu }) {
 
           {/* Icono bichito DESKTOP */}
           <FlutterDashIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          
+
 
           {/* Agrega un logo en DESKTOP con una tipografia especifica (se le puede poner un href) */}
           <Typography
