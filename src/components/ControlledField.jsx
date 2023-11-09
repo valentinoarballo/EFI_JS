@@ -10,7 +10,7 @@ export default function ControlledField({ name, type }) {
 
   return (
     <TextField
-      style={{margin:8}}
+      style={{margin:8}} 
       type={type}
       label={name}
       name={name}

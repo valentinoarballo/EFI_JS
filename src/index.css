@@ -39,3 +39,44 @@ a {
   -webkit-box-shadow: 18px 17px 34px -10px rgba(27, 27, 27, 0.75);
   -moz-box-shadow: 18px 17px 34px -10px rgba(27, 27, 27, 0.75);
 }
+
+.controlledField {
+  margin: 8;
+}
+
+/* ControlledField.jsx -> TextField */
+
+.taskCardContent {
+  display: flex;
+  gap: 15px;
+}
+
+/* TaskCard.jsx -> CardContent-> div */
+
+.taskCardActions {
+  display: flex;
+  margin-top: auto;
+  margin-left: auto;
+}
+
+/* TaskCard.jsx -> CardActions */
+
+.taskListBodySection {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* TaskList.jsx -> section (currentCards.map) */
+
+.taskListPagination {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+/* TaskList.jsx -> section (Pagination) */
+
