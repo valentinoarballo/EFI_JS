@@ -18,6 +18,8 @@ import FlutterDashIcon from '@mui/icons-material/FlutterDash';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { DarkModeContext } from '../context/DarkModeContext';
 import { LoginContext } from '../context/LoginContext';
+import '../index.css'
+import PropTypes from 'prop-types';
 
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -75,6 +77,8 @@ export default function ResponsiveAppBar({ listMenu }) {
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  
+  // eslint-disable-next-line no-unused-vars
   const { logged, loginToggle } = useContext(LoginContext)
 
   const navigate = useNavigate()
@@ -164,7 +168,7 @@ export default function ResponsiveAppBar({ listMenu }) {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none' }
               }}
             >
 
@@ -172,7 +176,11 @@ export default function ResponsiveAppBar({ listMenu }) {
                 return (
                   <Link to={path} key={key}>
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{name}</Typography>
+                      <Typography
+                        textAlign="center"
+                        style={{color: `${darkMode ? 'white':'black'}`}}
+                      >{name}
+                      </Typography>
                     </MenuItem>
                   </Link>
                 )
@@ -181,11 +189,6 @@ export default function ResponsiveAppBar({ listMenu }) {
             </Menu>
 
           </Box>
-
-
-          {/* Icono bichito MOBILE */}
-          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
-
 
           {/* Agrega un logo en MOBILE con una tipografia especifica (se le puede poner un href) */}
           <Typography
@@ -269,3 +272,9 @@ export default function ResponsiveAppBar({ listMenu }) {
     </AppBar>
   );
 }
+
+ResponsiveAppBar.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  listMenu: PropTypes.array.isRequired,
+};

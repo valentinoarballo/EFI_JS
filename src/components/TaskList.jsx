@@ -2,6 +2,8 @@ import { useState, useContext } from 'react';
 import Pagination from '@mui/material/Pagination';
 import TaskCard from './TaskCard';
 import { DarkModeContext } from '../context/DarkModeContext';
+import PropTypes from 'prop-types';
+
 
 export default function TaskList({ tasks, pages, completeParameter }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -10,7 +12,7 @@ export default function TaskList({ tasks, pages, completeParameter }) {
   const currentCards = tasks.slice(indexOfFirstCard, indexOfLastCard);
 
   const totalPages = Math.ceil(tasks.length / pages);
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
@@ -18,13 +20,9 @@ export default function TaskList({ tasks, pages, completeParameter }) {
 
   return (
     <>
-    
-
       <section style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
         {currentCards.map((task, key) => (
-
           <TaskCard key={key} data={task} />
-
         ))}
       </section>
 
@@ -36,10 +34,17 @@ export default function TaskList({ tasks, pages, completeParameter }) {
           color='primary'
           sx={{ // Clases de estilo condicionales
             '& .MuiPaginationItem-root': {
-              color: darkMode ? '#fff' : 'rgba(0, 0, 0, 0.87)'},}}
+              color: darkMode ? '#fff' : 'rgba(0, 0, 0, 0.87)'
+            },
+          }}
         />
       </section>
-
     </>
   );
 }
+
+TaskList.propTypes = {
+  tasks: PropTypes.array.isRequired,
+  pages: PropTypes.number.isRequired,
+  completeParameter: PropTypes.number.isRequired,
+};

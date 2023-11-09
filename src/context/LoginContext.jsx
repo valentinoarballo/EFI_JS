@@ -1,4 +1,6 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
+import PropTypes from 'prop-types';
+
 const LoginContext = createContext()
 
 const LoginContextProvider = (props) => {
@@ -15,5 +17,9 @@ const LoginContextProvider = (props) => {
   )
 
 }
+
+LoginContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export { LoginContext, LoginContextProvider }

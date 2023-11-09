@@ -4,19 +4,19 @@ import Menu from "../components/Menu";
 import Content from "../components/Content";
 import { DarkModeContext } from '../context/DarkModeContext';
 import { LoginContext } from "../context/LoginContext";
+import PropTypes from 'prop-types';
 
 
 export default function LMain({ children }) {
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  const { logged, loginToggle } = useContext(LoginContext)
+  const { darkMode } = useContext(DarkModeContext);
+  const { logged } = useContext(LoginContext)
 
   const navigate = useNavigate()
-
 
   useEffect(() => {
     if (!logged)
       navigate('/login')
-  }, [navigate])
+  })
 
   return (
     <div style={{ background: `${darkMode ? 'black' : ''}` }}>
@@ -46,3 +46,7 @@ export default function LMain({ children }) {
     </div>
   )
 }
+
+LMain.propTypes = {
+  children: PropTypes.node.isRequired,
+};

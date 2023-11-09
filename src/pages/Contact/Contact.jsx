@@ -1,4 +1,4 @@
-import LMain from "../layouts/LMain"
+import LMain from "../../layouts/LMain"
 
 export default function Contact() {
   return (

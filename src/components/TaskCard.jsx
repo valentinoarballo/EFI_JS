@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -12,15 +11,9 @@ import IconButton from '@mui/material/IconButton';
 import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme, darkTheme } from '../themes/theme'
 import '../index.css'
+import PropTypes from 'prop-types';
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
 
-  </Box>
-);
 function check(completed) {
   if (completed) {
     return (
@@ -38,7 +31,7 @@ function check(completed) {
 }
 export default function TaskCard({ data }) {
   const { title, id, completed, userId } = data
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
@@ -65,3 +58,12 @@ export default function TaskCard({ data }) {
     </ThemeProvider>
   );
 }
+
+TaskCard.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    completed: PropTypes.bool.isRequired,
+    userId: PropTypes.number.isRequired,
+  }).isRequired,
+};

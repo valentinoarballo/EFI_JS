@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { createContext, useState, useEffect } from 'react';
 
 const DarkModeContext = createContext();
@@ -24,6 +25,10 @@ const DarkModeProvider = (props) => {
     </DarkModeContext.Provider>
     
   );
+};
+
+DarkModeProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export { DarkModeContext, DarkModeProvider };
