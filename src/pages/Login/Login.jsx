@@ -27,7 +27,6 @@ export default function Login() {
 
     count = fields.length
     for (var x = 0; x < count; x++) {
-      console.log(inputs)
       if (inputs[x].value != fields[x].value) {
         return setFailed({ display: true, field: fields[x].name, failmsg: fields[x].failmsg })
       }
