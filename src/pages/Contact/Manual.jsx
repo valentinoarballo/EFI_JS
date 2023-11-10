@@ -12,7 +12,6 @@ import './Manual.css'
 import "../../index.css"
 import { useContext } from 'react'
 
-
 export default function Manual() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -65,6 +64,5 @@ export default function Manual() {
 
       </LMain>
     </ThemeProvider>
-
   )
 }

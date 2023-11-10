@@ -47,3 +47,7 @@ Las cartas to-do pueden filtrarse de dos maneras; por cantidad, y por tipo. El f
 La sección de paginación permite navegar todas las páginas de cartas.
 
 ![login](./src/assets/pag.png)
+
+### Integrantes
+
+Arballo Valentino, Petrocchi Luca
